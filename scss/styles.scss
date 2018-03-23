@@ -3,17 +3,21 @@
 
 @import "layout/layout";
 
+@import "modules/viewport";
 @import "modules/header";
+@import "modules/footer";
 @import "modules/nav";
-@import "modules/buttons";
 @import "modules/emblem";
+@import "modules/logotype";
 @import "modules/hero";
 @import "modules/launchpad";
+@import "modules/buttons";
+@import "modules/pokemon_info";
 @import "modules/media";
 
 @import "theme/main-theme";
 
-@import "media-queries/desktop";
-@import "media-queries/laptop";
-@import "media-queries/tablet";
-@import "media-queries/mobile";
+@import "media_queries/desktop";
+@import "media_queries/laptop";
+@import "media_queries/tablet";
+@import "media_queries/mobile";

@@ -1,0 +1,14 @@
+
+.container {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.col-row {
+    width: 50%;
+    justify-content: space-around;
+    align-content: space-around;
+}
