@@ -405,7 +405,7 @@ a:hover {
 .col-row {
   width: 50%;
   justify-content: space-around;
-  align-items: center; }
+  align-content: space-around; }
 
 .footer {
   position: fixed;
@@ -413,3 +413,7 @@ a:hover {
   font-size: .75em;
   text-align: center;
   padding: 20px; }
+
+.pokemonInfo a {
+  display: block;
+  margin-left: 10px; }
