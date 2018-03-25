@@ -13,36 +13,17 @@
 // this functionality is triggered and controlled by the launchpad buttons (.click) along with the proper css animation - put css animation in function calls
 
 
-
-// AJAX call within a JS class
-
-// GetReports.prototype.getResults = function() {
-//     var self = this;
-//     jQuery.ajax({
-//         type      :  'post',
-//         dataType  :  'json',
-//         url       :  'reporting/getStaffMemberReports',
-//         async     :  false,
-//         data      :  options,
-//         success   :  function(data) {
-//             self.results = data;
-//             setResult(self.results);
-//         };
-//     }); 
-// }
-
-
-
-
-
-
-const mawuAkumaPokedex = {
-    apiCall: (api_url) => {
+class Pokemon {
+    constructor(api_url) {
+        $(".pokemonImg").html("");
+        $(".pokemonInfo").html("");
+        let self = this;
         $.ajax({
             type: 'get',
             url: api_url,
             success: (data) => {
-                console.log(data)
+                console.log('fresh new Pokemon!')
+                self.xyzAllDataResults = data;
                 let $pokemonName = $(`<h1 class="pokemonName">${data.name}</h1>`);
                 let $pokemonImage = $(`<div class="frame frame-primary mask mask-primary"><img src=${data.sprites.back_default}></div>`);
                     let $frontImg = $(`<div class="frame frame-primary mask mask-primary"><img src=${data.sprites.front_default}></div>`);
@@ -59,27 +40,23 @@ const mawuAkumaPokedex = {
 
                 $('.pokemonImg').append($pokemonImage);
                 $('.pokemonInfo').append($pokemonName, $hp, $attack, $defense, $abilities);
+
+                self.name = data.name;
+                self.hp = data.stats[5].base_stat;
+                self.attack = data.stats[4].base_stat;
+                self.defense = data.stats[3].base_stat;
+                self.abilitiesList = [];
+                data.abilities.forEach((element) => {
+                    self.abilitiesList.push(element.ability.name);
+                });
+
+                mawuAkumaPokedex[data.name] = self;
             },
             error: (err) => {
                 console.log(err)
             }
-        })
-    }
-}
-
-
-
-class Pokemon {
-    constructor(pokemon_url) {
-    $(".pokemonImg").html("");
-    $(".pokemonInfo").html("");
-    mawuAkumaPokedex.apiCall(pokemon_url);
-    this.name =  mawuAkumaPokedex.apiCall.$pokemonName;
-    this.hp = mawuAkumaPokedex.apiCall.$hp;
-    this.attack = mawuAkumaPokedex.apiCall.$attack;
-    this.defense = mawuAkumaPokedex.apiCall.$defense;
-    this.abilities = mawuAkumaPokedex.apiCall.$abilitiesArr;
-    console.log(this);
+        });
+        console.log(self);
     }
 
     someCapability (data) {
@@ -93,22 +70,27 @@ class Pokemon {
 
 
 
-const all = (PokemonNumber1, PokemonNumber2, PokemonNumber3) => {
-    // array of all 3 pokemon objects
-    let pokemonArr = [];
-    pokemonArr.push(new Pokemon(`https://pokeapi.co/api/v2/pokemon/${PokemonNumber1}/`));
-    pokemonArr.push(new Pokemon(`https://pokeapi.co/api/v2/pokemon/${PokemonNumber2}/`));
-    pokemonArr.push(new Pokemon(`https://pokeapi.co/api/v2/pokemon/${PokemonNumber3}/`));
-    return pokemonArr
+const mawuAkumaPokedex = {
+    all: (PokemonNumber1, PokemonNumber2, PokemonNumber3) => {
+        // array of all 3 pokemon objects
+        let pokemonArr = [];
+        pokemonArr.push(new Pokemon(`https://pokeapi.co/api/v2/pokemon/${PokemonNumber1}/`));
+        pokemonArr.push(new Pokemon(`https://pokeapi.co/api/v2/pokemon/${PokemonNumber2}/`));
+        pokemonArr.push(new Pokemon(`https://pokeapi.co/api/v2/pokemon/${PokemonNumber3}/`));
+        return pokemonArr
+    },
+    get:  (PokemonNumber) => {
+        // return // pokemon object called by its name
+        new Pokemon(`https://pokeapi.co/api/v2/pokemon/${PokemonNumber}/`);
+        // return this
+    }
 }
 
-const get =  (PokemonNumber) => {
-    // return // pokemon object called by its name
-    new Pokemon(`https://pokeapi.co/api/v2/pokemon/${PokemonNumber}/`);
-    // return this
-}
+
 
 
 $(document).ready(() => {
-    get(25);
+    mawuAkumaPokedex.get(55);
 })
+
+
