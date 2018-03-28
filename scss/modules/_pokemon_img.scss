@@ -1,0 +1,15 @@
+.pokemonImg {
+    height: 96px;
+    width: 96px;
+    background: transparent;
+    &:before {
+        height: 96px;
+        width: 96px;
+        background: url(../imgs/force-field-front.png);
+    }
+    &:after {
+        height: 96px;
+        width: 96px;
+        background: url(../imgs/force-field-back.png);
+    }
+}

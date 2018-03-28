@@ -1,14 +1,23 @@
 
 .container {
     width: 100%;
+    height: 100%;
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-around;
     align-items: center;
+    background: url(../imgs/the-sky-gold.jpg);
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
 }
 
 .col-row {
     width: 50%;
-    justify-content: space-around;
-    align-content: space-around;
+    height: 100vh;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
 }

@@ -1,9 +1,18 @@
 
-.footer {
+footer {
     position: fixed;
-    // width: 100%;
+    width: 100%;
     bottom: 0;
-    font-size: .75em;
     text-align: center;
-    padding: 20px;
+}
+
+.copyright {
+    width: 100%;
+    position: absolute;
+    bottom: 5px;
+    font-size: .65em;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    opacity: .4;
 }
