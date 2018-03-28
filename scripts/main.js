@@ -13,6 +13,14 @@
 // this functionality is triggered and controlled by the launchpad buttons (.click) along with the proper css animation - put css animation in function calls
 
 
+////// NOT DONE YET!!!!!!
+
+// refactor code to separate ajax call and object exention from browser display
+// make use of higher order functions
+// write functionality for button carousel to shuffle between pokemons 
+// document.ready >> getAll() >> show(first)  -- get the data from the Pokedex object, not the API
+
+
 class Pokemon {
     constructor(api_url) {
         $(".pokemonImg").html("");
@@ -28,13 +36,13 @@ class Pokemon {
                 let $pokemonImage = $(`<div class="frame frame-primary mask mask-primary"><img src=${data.sprites.back_default}></div>`);
                     let $frontImg = $(`<div class="frame frame-primary mask mask-primary"><img src=${data.sprites.front_default}></div>`);
                     let $backImg = $(`<div class="frame frame-primary mask mask-primary"><img src=${data.sprites.back_default}></div>`);
-                let $hp = $(`<h1 class="hp">HP: ${data.stats[5].base_stat}</h1>`);
+                let $hp = $(`<h2 class="hp">HP: ${data.stats[5].base_stat}</h2>`);
                 let $attack = $(`<div class="attack">attack: ${data.stats[4].base_stat}</div>`);
-                let $defense = $(`<p class="defense">defesne: ${data.stats[3].base_stat}</p>`);
-                let $abilities = $("</br><p class='abilities'>ABILITIES:</p>");
+                let $defense = $(`<p class="defense">defense: ${data.stats[3].base_stat}</p>`);
+                let $abilities = $("<p class='abilities'></br></br></p>");
                 let $abilitiesArr = [];
                 data.abilities.forEach((element) => {
-                    $abilitiesArr.push($(`<a class="ability" href="${element.ability.url}">${element.ability.name}</a>`));
+                    $abilitiesArr.push($(`<a class="ability" href="${element.ability.url}">${element.ability.name}</a></br></br></br>`));
                 });
                 $abilities.append($abilitiesArr);
 
@@ -77,6 +85,8 @@ const mawuAkumaPokedex = {
         pokemonArr.push(new Pokemon(`https://pokeapi.co/api/v2/pokemon/${PokemonNumber1}/`));
         pokemonArr.push(new Pokemon(`https://pokeapi.co/api/v2/pokemon/${PokemonNumber2}/`));
         pokemonArr.push(new Pokemon(`https://pokeapi.co/api/v2/pokemon/${PokemonNumber3}/`));
+        $(".pokemonImg").html("");
+        $(".pokemonInfo").html("");
         return pokemonArr
     },
     get:  (PokemonNumber) => {
@@ -90,7 +100,7 @@ const mawuAkumaPokedex = {
 
 
 $(document).ready(() => {
-    mawuAkumaPokedex.get(55);
+    mawuAkumaPokedex.get(79);
 })
 
 

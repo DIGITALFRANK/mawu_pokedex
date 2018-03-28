@@ -1,5 +1,21 @@
-
-.pokemonInfo a {
-    display: block;
-    margin-left: 10px; 
+.pokemonInfo {
+    text-align: center;
+    & a {
+        padding: 20px;
+        background: rgb(6, 245, 153);
+        color: brown;
+        border-radius: 25px;
+        margin: 10px;
+        text-decoration: none;
+    }
 }
+
+.pokemonName {
+    font-size: 4em;
+    text-transform: capitalize;
+}
+
+.hp {
+    font-size: 1.5em;
+}
+
