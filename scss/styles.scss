@@ -4,15 +4,15 @@
 @import "base/normalize";
 @import "base/base";
 
+@import "layout/media_queries";
 @import "layout/layout";
 
+@import "modules/lightbox-animation";
 @import "modules/viewport";
 @import "modules/header";
 @import "modules/footer";
-@import "modules/nav";
 @import "modules/emblem";
 @import "modules/logotype";
-@import "modules/hero";
 @import "modules/launchpad";
 @import "modules/buttons";
 @import "modules/pokemon_info";

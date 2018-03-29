@@ -21,6 +21,17 @@
 // document.ready >> getAll() >> show(first)  -- get the data from the Pokedex object, not the API
 
 
+// has to be deployed on GitPages (github.io)
+// has to look like a GameBoy
+
+
+
+
+
+
+///////////////////////////////////// OLD CODE //////////////////////////////////////////
+
+
 class Pokemon {
     constructor(api_url) {
         $(".pokemonImg").html("");
@@ -39,10 +50,11 @@ class Pokemon {
                 let $hp = $(`<h2 class="hp">HP: ${data.stats[5].base_stat}</h2>`);
                 let $attack = $(`<div class="attack">attack: ${data.stats[4].base_stat}</div>`);
                 let $defense = $(`<p class="defense">defense: ${data.stats[3].base_stat}</p>`);
-                let $abilities = $("<p class='abilities'></br></br></p>");
+                let $abilities = $("<p class='abilities'></br></br>abilities:</br></br></p>");
                 let $abilitiesArr = [];
                 data.abilities.forEach((element) => {
-                    $abilitiesArr.push($(`<a class="ability" href="${element.ability.url}">${element.ability.name}</a></br></br></br>`));
+                    $abilitiesArr.push($(`<a class="ability" href="${element.ability.url}">${element.ability.name}</a>`));
+                    // $abilitiesArr.push($(`<a class="ability" href="${element.ability.url}">${element.ability.name}</a></br></br></br>`));
                 });
                 $abilities.append($abilitiesArr);
 
@@ -65,6 +77,10 @@ class Pokemon {
             }
         });
         console.log(self);
+    }
+
+    call (api_url) {
+
     }
 
     someCapability (data) {
@@ -100,7 +116,129 @@ const mawuAkumaPokedex = {
 
 
 $(document).ready(() => {
-    mawuAkumaPokedex.get(79);
+    mawuAkumaPokedex.get(25);
+
+    $(".buttonGreen").click(() => {
+        
+    })
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+///////////////////////////////////////////////////// CODE REFACTORING /////////////////////////////////////////////
+
+
+
+// class Pokemon {
+//     call (api_url) {
+//         let newPokemon = this;
+//         $.ajax({
+//             type: 'get',
+//             url: api_url,
+//             success: (data) => {
+//                 console.log('fresh new Pokemon!')
+//                 newPokemon.xyzAllDataResults = data;
+//                 newPokemon.name = data.name;
+//                 newPokemon.hp = data.stats[5].base_stat;
+//                 newPokemon.attack = data.stats[4].base_stat;
+//                 newPokemon.defense = data.stats[3].base_stat;
+//                 newPokemon.abilitiesList = [];
+//                 newPokemon.abilities.forEach((element) => {
+//                     newPokemon.abilitiesList.push(element.ability.name);
+//                 });
+
+//                 mawuAkumaPokedex[data.name] = newPokemon;
+//             },
+//             error: (err) => {
+//                 console.log(err)
+//             }
+//         });
+//         console.log(newPokemon);
+//     }
+
+//     constructor(api_url) {
+        
+
+//     }
+
+//     someCapability (data) {
+//         return // the damn capability
+//     }
+
+//     anotherCapability (data) {
+//         return // the other damn capability
+//     }
+// }
+
+
+
+// const mawuAkumaPokedex = {
+//     pokedex: [],
+//     all: (PokemonNumber1, PokemonNumber2, PokemonNumber3) => {
+//         // array of all 3 pokemon objects
+//         pokedex.push(new Pokemon(`https://pokeapi.co/api/v2/pokemon/${PokemonNumber1}/`));
+//         pokedex.push(new Pokemon(`https://pokeapi.co/api/v2/pokemon/${PokemonNumber2}/`));
+//         pokedex.push(new Pokemon(`https://pokeapi.co/api/v2/pokemon/${PokemonNumber3}/`));
+//         $(".pokemonImg").html("");
+//         $(".pokemonInfo").html("");
+//         return pokedex
+//     },
+//     get:  (PokemonNumber) => {
+//         // return // pokemon object called by its name
+//         let singlePokemon = new Pokemon(`https://pokeapi.co/api/v2/pokemon/${PokemonNumber}/`);
+//         return singlePokemon
+//     },
+//     showSingle: (pokemon) => {
+//         $(".pokemonImg").html("");
+//         $(".pokemonInfo").html("");
+//         let $pokemonName = $(`<h1 class="pokemonName">${pokedex[0].name}</h1>`);
+//         let $pokemonImage = $(`<div class="frame frame-primary mask mask-primary"><img src=${pokedex[0].sprites.back_default}></div>`);
+//             let $frontImg = $(`<div class="frame frame-primary mask mask-primary"><img src=${pokedex[0].sprites.front_default}></div>`);
+//             let $backImg = $(`<div class="frame frame-primary mask mask-primary"><img src=${pokedex[0].sprites.back_default}></div>`);
+//         let $hp = $(`<h2 class="hp">HP: ${pokedex[0].stats[5].base_stat}</h2>`);
+//         let $attack = $(`<div class="attack">attack: ${pokedex[0].stats[4].base_stat}</div>`);
+//         let $defense = $(`<p class="defense">defense: ${pokedex[0].stats[3].base_stat}</p>`);
+//         let $abilities = $("<p class='abilities'></br></br>abilities:</br></br></p>");
+//         let $abilitiesArr = [];
+//         pokedex[0].abilities.forEach((element) => {
+//             $abilitiesArr.push($(`<a class="ability" href="${element.ability.url}">${element.ability.name}</a>`));
+//             // $abilitiesArr.push($(`<a class="ability" href="${element.ability.url}">${element.ability.name}</a></br></br></br>`));
+//         });
+//         $abilities.append($abilitiesArr);
+
+//         $('.pokemonImg').append($pokemonImage);
+//         $('.pokemonInfo').append($pokemonName, $hp, $attack, $defense, $abilities);
+//     },
+//     showAll: () => {
+
+//     }
+// }
+
+
+
+
+// $(document).ready(() => {
+//     mawuAkumaPokedex.get(79);
+//     mawuAkumaPokedex.showSingle(mawuAkumaPokedex.pokedex[0])
+// })
+
+
+
+
 
 

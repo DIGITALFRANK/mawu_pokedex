@@ -1,12 +1,17 @@
 
-.container {
+.myContainer {
     width: 100%;
     height: 100%;
+    padding: 0;
+    margin: 0;
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-around;
     align-items: center;
-    background: url(../imgs/the-sky-gold.jpg);
+    @include tablet-and-below {
+        flex-flow: column wrap;
+    }
+    background: rgb(255, 213, 0); // url(../imgs/the-sky-gold.jpg);
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -20,4 +25,10 @@
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
+    transition: ease .6s;
+    @include tablet-and-below {
+        width: 100%;
+        height: 50vh;
+        // justify-content: flex-end;
+    }
 }

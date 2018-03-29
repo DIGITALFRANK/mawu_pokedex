@@ -1,21 +1,36 @@
 .pokemonInfo {
     text-align: center;
     & a {
-        padding: 20px;
+        margin-left: 10px;
+        padding: 10px 25px;
         background: rgb(6, 245, 153);
         color: brown;
-        border-radius: 25px;
-        margin: 10px;
+        border-radius: 10px;
         text-decoration: none;
+        font-weight: bold;
+        @include tablet-and-below {
+            display: block;
+            margin-top: 5px;
+        }
     }
 }
 
 .pokemonName {
-    font-size: 4em;
-    text-transform: capitalize;
+    margin: 0;
+    padding: 0;
+    font: 1.5em/1em 'Press Start 2P', cursive;
+    text-transform: uppercase;
+    @include tablet-and-below {
+        padding: 10px;
+    }
 }
 
 .hp {
     font-size: 1.5em;
 }
 
+.abilities {
+    @include tablet-and-below {
+        margin-bottom: 100px;
+    }
+}
