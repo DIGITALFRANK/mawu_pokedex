@@ -8,10 +8,32 @@ header {
 }
 
 #mawu-logotype {
-    font: 2.5em/1em 'Arial', sans-serif;
+    font: 1.5em/1em 'Press Start 2P', cursive;
     font-style: italic;
     font-weight: bold;
     text-transform: uppercase;
     text-align: center;
+    padding: 10px;
     padding-top: 30px; 
+    transition: ease .6s;
+    @include tablet-and-below {
+        font-size: 1em;
+        padding-top: 20px;
+    }
+    @include mobile-only {
+        font-size: .5em;
+        padding-top: 10px;
+    }
+}
+
+nav {
+    background-color: rgb(255, 213, 0);
+    z-index: 100;
+    transition: ease .6s;
+    @include tablet-and-below {
+        height: 30px;
+    }
+    @include mobile-only {
+        height: 15px;
+    }
 }

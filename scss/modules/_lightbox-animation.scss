@@ -1,0 +1,18 @@
+
+.pokeballLightbox {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background: rgb(255, 213, 0);
+    z-index: 100000;
+
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0;
+    display: none;
+}
+
+// write animation for display and opacity

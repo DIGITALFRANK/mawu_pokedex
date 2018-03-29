@@ -1,7 +1,9 @@
 .pokemonImg {
-    height: 96px;
-    width: 96px;
-    background: transparent;
+    // height: 96px;
+    // width: 96px;
+    // background: rgba($color: #fff, $alpha: 0.7);
+    background-color: #000;
+    z-index: 1000;
     &:before {
         height: 96px;
         width: 96px;
@@ -12,4 +14,7 @@
         width: 96px;
         background: url(../imgs/force-field-back.png);
     }
+    // @include tablet-and-below {
+    //     justify-content: flex-end;
+    // }
 }
