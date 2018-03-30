@@ -107,7 +107,7 @@ const mawuAkumaPokedex = {
     },
     get:  (PokemonNumber) => {
         // return // pokemon object called by its name
-        new Pokemon(`http://pokeapi.salestock.net/api/v2/pokemon/${PokemonNumber}/`);
+        new Pokemon(`https://pokeapi.co/api/v2/pokemon/${PokemonNumber}/`);
         // return this
     }
 }
