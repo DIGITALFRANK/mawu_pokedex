@@ -24,7 +24,7 @@
 // has to be deployed on GitPages (github.io)
 // has to look like a GameBoy
 
-
+// implement materialze carousel view for get all method
 
 
 
@@ -83,11 +83,11 @@ class Pokemon {
 
     }
 
-    someCapability (data) {
+    someCapability (something) {
         return // the damn capability
     }
 
-    anotherCapability (data) {
+    anotherCapability (something) {
         return // the other damn capability
     }
 }
@@ -107,7 +107,7 @@ const mawuAkumaPokedex = {
     },
     get:  (PokemonNumber) => {
         // return // pokemon object called by its name
-        new Pokemon(`https://pokeapi.co/api/v2/pokemon/${PokemonNumber}/`);
+        new Pokemon(`http://pokeapi.salestock.net/api/v2/pokemon/${PokemonNumber}/`);
         // return this
     }
 }
@@ -118,8 +118,31 @@ const mawuAkumaPokedex = {
 $(document).ready(() => {
     mawuAkumaPokedex.get(25);
 
+    let consoleLeft = document.getElementById("consoleLeft");
+    consoleLeft.setAttribute('class', 'slideInLeft');
+
+
+
+
+    let myPokemonNumbers = [25, 55, 79]
+    let i = 1;
+    let currentPokemon = myPokemonNumbers[i];
+
     $(".buttonGreen").click(() => {
-        
+        // for (let i = 0; i < myPokemonNumbers.length; i++) {
+
+        // }
+        // let currentPokemon = myPokemonNumbers[i];
+        // currentPokemon = (currentPokemon != myPokemonNumbers.length - 1) ? currentPokemon + 1 : 0;
+        // mawuAkumaPokedex.get(myPokemonNumbers[currentPokemon + 1]);
+
+    
+      
+        mawuAkumaPokedex.get(myPokemonNumbers[i++]);
+        // currentPokemon = (currentPokemon != myPokemonNumbers.length - 1) ? currentPokemon + 1 : 0;
+    })
+    $(".buttonRed").click(() => {
+        mawuAkumaPokedex.get(myPokemonNumbers[i - 2]);
     })
 })
 
